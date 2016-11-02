@@ -55,7 +55,14 @@ def greyscale():
             colourImage.fill( [deg]*3, ((x,y), (1,1)))
 
 
-
+def blueColour():
+    for y in xrange(HEIGHT):
+        for x in xrange(WIDTH):
+            RED = DISPLAY.get_at((x, y)).r
+            GREEN = DISPLAY.get_at((x, y)).g
+            BLUE = DISPLAY.get_at((x, y)).b
+            pxarray[x, y] = (255 - RED, 255 - GREEN, BLUE)
+            pygame.display.flip()
 
 while True:
    for event in pygame.event.get():
@@ -65,9 +72,9 @@ while True:
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_d:
            drawimage()
-   if event.type == pygame.KEYDOWN:
-       if event.key == pygame.K_g:
-           blite()
+   # if event.type == pygame.KEYDOWN:
+   #     if event.key == pygame.K_g:
+   #         blite()
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_t:
             greyscale()
