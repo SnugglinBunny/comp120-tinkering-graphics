@@ -3,7 +3,9 @@ from pygame.locals import *
 from pygame.image import save
 pygame.init()
 
-DISPLAY = pygame.display.set_mode((1400, 932), 0, 32)
+HEIGHT = 1400
+WIDTH = 932
+DISPLAY = pygame.display.set_mode((HEIGHT, WIDTH), 0, 32)
 pygame.display.set_caption('images\Bill Nye')
 clock = pygame.time.Clock()
 colourImage = pygame.image.load('images\BillNye.jpg')
@@ -11,7 +13,6 @@ delay = 200
 red = False
 green = True
 blue = False
-
 
 def drawimage():
     DISPLAY.blit(colourImage, [0, 0])
@@ -56,6 +57,7 @@ def greyscale():
 
 
 def blueColour():
+    pxarray = pygame.PixelArray(DISPLAY)
     for y in xrange(HEIGHT):
         for x in xrange(WIDTH):
             RED = DISPLAY.get_at((x, y)).r
@@ -63,6 +65,7 @@ def blueColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, BLUE)
             pygame.display.flip()
+            del pxarray
 
 while True:
    for event in pygame.event.get():
@@ -72,9 +75,9 @@ while True:
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_d:
            drawimage()
-   # if event.type == pygame.KEYDOWN:
-   #     if event.key == pygame.K_g:
-   #         blite()
+   if event.type == pygame.KEYDOWN:
+       if event.key == pygame.K_g:
+           blueColour()
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_t:
             greyscale()
