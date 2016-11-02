@@ -1,7 +1,6 @@
-import pygame, sys, PIL
+import pygame, sys
 from pygame.locals import *
 from pygame.image import save
-from PIL import Image
 pygame.init()
 
 DISPLAY = pygame.display.set_mode((1400, 932), 0, 32)
@@ -28,24 +27,24 @@ def drawimage():
     pygame.time.delay(delay)
     pygame.display.flip()
 
-def blite():
-    image = Image.open('images\BillNye.jpg')
-    gray = image.convert('L')
-    bw = gray.point(lambda x: 0 if x < 128 else 255, '1')
-    bw.save('images\BillNyeBW.png')
-    bwimage = pygame.image.load('images\BillNyeBW.png')
-    DISPLAY.blit(bwimage, [0, 0])
-    pygame.time.delay(delay)
-    pygame.display.flip()
-    DISPLAY.blit(bwimage, [700, 0])
-    pygame.time.delay(delay)
-    pygame.display.flip()
-    DISPLAY.blit(bwimage, [0, 466])
-    pygame.time.delay(delay)
-    pygame.display.flip()
-    DISPLAY.blit(bwimage, [700, 466])
-    pygame.time.delay(delay)
-    pygame.display.flip()
+# def blite():
+#     image = Image.open('images\BillNye.jpg')
+#     gray = image.convert('L')
+#     bw = gray.point(lambda x: 0 if x < 128 else 255, '1')
+#     bw.save('images\BillNyeBW.png')
+#     bwimage = pygame.image.load('images\BillNyeBW.png')
+#     DISPLAY.blit(bwimage, [0, 0])
+#     pygame.time.delay(delay)
+#     pygame.display.flip()
+#     DISPLAY.blit(bwimage, [700, 0])
+#     pygame.time.delay(delay)
+#     pygame.display.flip()
+#     DISPLAY.blit(bwimage, [0, 466])
+#     pygame.time.delay(delay)
+#     pygame.display.flip()
+#     DISPLAY.blit(bwimage, [700, 466])
+#     pygame.time.delay(delay)
+#     pygame.display.flip()
 
 def greyscale():
     for x in range(colourImage.get_width()):
