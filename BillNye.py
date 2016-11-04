@@ -67,6 +67,34 @@ def blueColour():
             pygame.display.flip()
             del pxarray
 
+
+def redColour():
+    for y in xrange(HEIGHT):
+        for x in xrange(WIDTH):
+            RED = DISPLAY.get_at((x, y)).r
+            GREEN = DISPLAY.get_at((x, y)).g
+            BLUE = DISPLAY.get_at((x, y)).b
+            pxarray[x, y] = (RED, 255 - GREEN, 255- BLUE)
+
+
+def greenColour():
+    for y in xrange(HEIGHT):
+        for x in xrange(WIDTH):
+            RED = DISPLAY.get_at((x, y)).r
+            GREEN = DISPLAY.get_at((x, y)).g
+            BLUE = DISPLAY.get_at((x, y)).b
+            pxarray[x, y] = (255 - RED, GREEN, 255- BLUE)
+
+
+def invertColour():
+    for y in xrange(HEIGHT):
+        for x in xrange(WIDTH):
+            RED = DISPLAY.get_at((x, y)).r
+            GREEN = DISPLAY.get_at((x, y)).g
+            BLUE = DISPLAY.get_at((x, y)).b
+            pxarray[x, y] = (255 - RED, 255 - GREEN, 255 - BLUE)
+
+
 while True:
    for event in pygame.event.get():
        if event.type == QUIT:
