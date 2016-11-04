@@ -67,6 +67,7 @@ def greyscale():
 
             pxarray[x, y] = (GREY, GREY, GREY)
             del pxarray
+            pygame.display.flip()
 
 
 def blueColour():
@@ -77,8 +78,8 @@ def blueColour():
             GREEN = DISPLAY.get_at((x, y)).g
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, BLUE)
-            pygame.display.flip()
             del pxarray
+            pygame.display.flip()
 
 
 def redColour():
@@ -90,6 +91,7 @@ def redColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (RED, 255 - GREEN, 255- BLUE)
             del pxarray
+            pygame.display.flip()
 
 
 def greenColour():
@@ -101,6 +103,7 @@ def greenColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, GREEN, 255- BLUE)
             del pxarray
+            pygame.display.flip()
 
 
 def invertColour():
@@ -112,6 +115,7 @@ def invertColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, 255 - BLUE)
             del pxarray
+            pygame.display.flip()
 
 
 while True:
