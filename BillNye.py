@@ -17,16 +17,12 @@ blue = False
 def drawimage():
     DISPLAY.blit(colourImage, [0, 0])
     pygame.time.delay(delay)
-    pygame.display.flip()
     DISPLAY.blit(colourImage, [700, 0])
     pygame.time.delay(delay)
-    pygame.display.flip()
     DISPLAY.blit(colourImage, [0, 466])
     pygame.time.delay(delay)
-    pygame.display.flip()
     DISPLAY.blit(colourImage, [700, 466])
     pygame.time.delay(delay)
-    pygame.display.flip()
 
 # def blite():
 #     image = Image.open('images\BillNye.jpg')
@@ -36,16 +32,12 @@ def drawimage():
 #     bwimage = pygame.image.load('images\BillNyeBW.png')
 #     DISPLAY.blit(bwimage, [0, 0])
 #     pygame.time.delay(delay)
-#     pygame.display.flip()
 #     DISPLAY.blit(bwimage, [700, 0])
 #     pygame.time.delay(delay)
-#     pygame.display.flip()
 #     DISPLAY.blit(bwimage, [0, 466])
 #     pygame.time.delay(delay)
-#     pygame.display.flip()
 #     DISPLAY.blit(bwimage, [700, 466])
 #     pygame.time.delay(delay)
-#     pygame.display.flip()
 #
 # def greyscale():
 #     for x in range(colourImage.get_width()):
@@ -67,7 +59,7 @@ def greyscale():
 
             pxarray[x, y] = (GREY, GREY, GREY)
             del pxarray
-            pygame.display.flip()
+
 
 
 def blueColour():
@@ -79,7 +71,7 @@ def blueColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, BLUE)
             del pxarray
-            pygame.display.flip()
+
 
 
 def redColour():
@@ -91,7 +83,7 @@ def redColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (RED, 255 - GREEN, 255- BLUE)
             del pxarray
-            pygame.display.flip()
+
 
 
 def greenColour():
@@ -103,7 +95,7 @@ def greenColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, GREEN, 255- BLUE)
             del pxarray
-            pygame.display.flip()
+
 
 
 def invertColour():
@@ -115,7 +107,6 @@ def invertColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, 255 - BLUE)
             del pxarray
-            pygame.display.flip()
 
 
 while True:
@@ -126,12 +117,14 @@ while True:
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_d:
            drawimage()
+           pygame.display.flip()
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_g:
            blueColour()
+           pygame.display.flip()
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_t:
             greyscale()
-
+       pygame.display.flip()
 pygame.display.update()
 clock.tick(60)
