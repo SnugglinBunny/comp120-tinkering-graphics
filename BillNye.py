@@ -46,14 +46,25 @@ def drawimage():
 #     DISPLAY.blit(bwimage, [700, 466])
 #     pygame.time.delay(delay)
 #     pygame.display.flip()
+#
+# def greyscale():
+#     for x in range(colourImage.get_width()):
+#         for y in range(colourImage.get_height()):
+#             c = list(colourImage.get_at((x,y))[:3])
+#             deg = (c[0]*red +c[1]*green + c[2]*blue) / (red + green + blue)
+#
+#             colourImage.fill( [deg]*3, ((x,y), (1,1)))
 
 def greyscale():
-    for x in range(colourImage.get_width()):
-        for y in range(colourImage.get_height()):
-            c = list(colourImage.get_at((x,y))[:3])
-            deg = (c[0]*red +c[1]*green + c[2]*blue) / (red + green + blue)
+    for y in xrange(HEIGHT):
+        for x in xrange(WIDTH):
+            RED = DISPLAY.get_at((x, y)).r
+            GREEN = DISPLAY.get_at((x, y)).g
+            BLUE = DISPLAY.get_at((x, y)).b
 
-            colourImage.fill( [deg]*3, ((x,y), (1,1)))
+            GREY = (RED + GREEN + BLUE)/3
+
+            pxarray[x, y] = (GREY, GREY, GREY)
 
 
 def blueColour():
