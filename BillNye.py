@@ -17,12 +17,16 @@ blue = False
 def drawimage():
     DISPLAY.blit(colourImage, [0, 0])
     pygame.time.delay(delay)
+    pygame.display.flip()
     DISPLAY.blit(colourImage, [700, 0])
     pygame.time.delay(delay)
+    pygame.display.flip()
     DISPLAY.blit(colourImage, [0, 466])
     pygame.time.delay(delay)
+    pygame.display.flip()
     DISPLAY.blit(colourImage, [700, 466])
     pygame.time.delay(delay)
+    pygame.display.flip()
 
 # def blite():
 #     image = Image.open('images\BillNye.jpg')
@@ -32,12 +36,16 @@ def drawimage():
 #     bwimage = pygame.image.load('images\BillNyeBW.png')
 #     DISPLAY.blit(bwimage, [0, 0])
 #     pygame.time.delay(delay)
+#     pygame.display.flip()
 #     DISPLAY.blit(bwimage, [700, 0])
 #     pygame.time.delay(delay)
+#     pygame.display.flip()
 #     DISPLAY.blit(bwimage, [0, 466])
 #     pygame.time.delay(delay)
+#     pygame.display.flip()
 #     DISPLAY.blit(bwimage, [700, 466])
 #     pygame.time.delay(delay)
+#     pygame.display.flip()
 #
 # def greyscale():
 #     for x in range(colourImage.get_width()):
@@ -125,6 +133,6 @@ while True:
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_t:
             greyscale()
-       pygame.display.flip()
+            pygame.display.flip()
 pygame.display.update()
 clock.tick(60)
