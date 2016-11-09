@@ -13,6 +13,8 @@ delay = 200
 red = False
 green = True
 blue = False
+pxarray = pygame.PixelArray(DISPLAY)
+del pxarray
 
 def drawimage():
     DISPLAY.blit(colourImage, [0, 0])
@@ -66,56 +68,38 @@ def greyscale():
             GREY = (RED + GREEN + BLUE)/3
 
             pxarray[x, y] = (GREY, GREY, GREY)
-            del pxarray
-
-
 
 def blueColour():
-    pxarray = pygame.PixelArray(DISPLAY)
     for y in xrange(HEIGHT):
         for x in xrange(WIDTH):
             RED = DISPLAY.get_at((x, y)).r
             GREEN = DISPLAY.get_at((x, y)).g
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, BLUE)
-            del pxarray
-
-
 
 def redColour():
-    pxarray = pygame.PixelArray(DISPLAY)
     for y in xrange(HEIGHT):
         for x in xrange(WIDTH):
             RED = DISPLAY.get_at((x, y)).r
             GREEN = DISPLAY.get_at((x, y)).g
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (RED, 255 - GREEN, 255- BLUE)
-            del pxarray
-
-
 
 def greenColour():
-    pxarray = pygame.PixelArray(DISPLAY)
     for y in xrange(HEIGHT):
         for x in xrange(WIDTH):
             RED = DISPLAY.get_at((x, y)).r
             GREEN = DISPLAY.get_at((x, y)).g
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, GREEN, 255- BLUE)
-            del pxarray
-
-
 
 def invertColour():
-    pxarray = pygame.PixelArray(DISPLAY)
     for y in xrange(HEIGHT):
         for x in xrange(WIDTH):
             RED = DISPLAY.get_at((x, y)).r
             GREEN = DISPLAY.get_at((x, y)).g
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, 255 - BLUE)
-            del pxarray
-
 
 while True:
    for event in pygame.event.get():
