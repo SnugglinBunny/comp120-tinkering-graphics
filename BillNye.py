@@ -7,13 +7,14 @@ WIDTH = 1400
 HEIGHT = 932
 DISPLAY = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
 pygame.display.set_caption('Bill Nye')
+clock = pygame.time.Clock()
 
 BLACK = (0, 0, 0)
 WHITE= (255, 255, 255) # red, green, blue in 8-bits
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
-
+Delay = 200
 colourImage = pygame.image.load('images\BillNyePlus.jpg')
 
 DISPLAY.blit(colourImage, (0, 0))
@@ -114,22 +115,40 @@ while True:
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeRed.jpg')
+           RedImage = pygame.image.load('images\BillNyeRed.jpg')
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_3:
            greenColour()
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeGreen.jpg')
+           GreenImage = pygame.image.load('images\BillNyeGreen.jpg')
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_4:
            blueColour()
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeBlue.jpg')
+           BlueImage = pygame.image.load('images\BillNyeBlue.jpg')
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_5:
            BlackWhite()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeBlackWhite.jpg')
-
+           BWImage = pygame.image.load('images\BillNyeBlackWhite.jpg')
+   if event.type == pygame.KEYDOWN:
+       if event.key == pygame.K_9:
+           DISPLAY.blit(BWImage, (0, 0))
+           pygame.display.flip()
+           pygame.time.delay(Delay)
+           DISPLAY.blit(RedImage, (700, 0))
+           pygame.display.flip()
+           pygame.time.delay(Delay)
+           DISPLAY.blit(GreenImage, (0, 466))
+           pygame.display.flip()
+           pygame.time.delay(Delay)
+           DISPLAY.blit(BlueImage, (700, 466))
+           pygame.display.flip()
+           pygame.time.delay(Delay)
 pygame.display.update()
+clock.tick(60)
