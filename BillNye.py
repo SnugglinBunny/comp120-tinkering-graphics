@@ -115,32 +115,32 @@ while True:
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeRed.jpg')
-           RedImage = pygame.image.load('images\BillNyeRed.jpg')
-           RedImage = pygame.transform.scale(RedImage, (700, 466))
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_3:
            greenColour()
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeGreen.jpg')
-           GreenImage = pygame.image.load('images\BillNyeGreen.jpg')
-           GreenImage = pygame.transform.scale(GreenImage, (700, 466))
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_4:
            blueColour()
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeBlue.jpg')
-           BlueImage = pygame.image.load('images\BillNyeBlue.jpg')
-           BlueImage = pygame.transform.scale(BlueImage, (700, 466))
    if event.type == pygame.KEYDOWN:
        if event.key == pygame.K_5:
            BlackWhite()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeBlackWhite.jpg')
-           BWImage = pygame.image.load('images\BillNyeBlackWhite.jpg')
-           BWImage = pygame.transform.scale(BWImage, (700, 466))
    if event.type == pygame.KEYDOWN:
+       RedImage = pygame.image.load('images\BillNyeRed.jpg')
+       RedImage = pygame.transform.scale(RedImage, (700, 466))
+       GreenImage = pygame.image.load('images\BillNyeGreen.jpg')
+       GreenImage = pygame.transform.scale(GreenImage, (700, 466))
+       BlueImage = pygame.image.load('images\BillNyeBlue.jpg')
+       BlueImage = pygame.transform.scale(BlueImage, (700, 466))
+       BWImage = pygame.image.load('images\BillNyeBlackWhite.jpg')
+       BWImage = pygame.transform.scale(BWImage, (700, 466))
        if event.key == pygame.K_9:
            DISPLAY.blit(BWImage, (0, 0))
            pygame.display.flip()
@@ -154,5 +154,6 @@ while True:
            DISPLAY.blit(BlueImage, (700, 466))
            pygame.display.flip()
            pygame.time.delay(Delay)
+
 pygame.display.update()
 clock.tick(60)
