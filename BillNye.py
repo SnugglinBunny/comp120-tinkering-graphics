@@ -16,6 +16,7 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 Delay = 200
 colourImage = pygame.image.load('images\BillNyePlus.jpg')
+colourImage = pygame.transform.scale(colourImage, (1400, 932))
 
 DISPLAY.blit(colourImage, (0, 0))
 pygame.display.flip()
