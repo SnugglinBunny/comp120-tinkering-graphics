@@ -154,6 +154,7 @@ while True:
            DISPLAY.blit(BlueImage, (700, 466))
            pygame.display.flip()
            pygame.time.delay(Delay)
+           pygame.image.save(DISPLAY, 'images\PieceDeResistance.jpg')
 
 pygame.display.update()
 clock.tick(60)
