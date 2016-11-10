@@ -16,7 +16,7 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 Delay = 200
 colourImage = pygame.image.load('images\BillNyePlus.jpg')
-colourImage = pygame.transform.scale(colourImage, (1400, 932))
+colourImage = pygame.transform.scale(colourImage, (WIDTH, HEIGHT))
 
 DISPLAY.blit(colourImage, (0, 0))
 pygame.display.flip()
@@ -100,62 +100,62 @@ def BlackWhite():
 
     del pxarray
 
+def PieceDeResistance():
+    RedImage = pygame.image.load('images\BillNyeRed.jpg')
+    RedImage = pygame.transform.scale(RedImage, (700, 466))
+    GreenImage = pygame.image.load('images\BillNyeGreen.jpg')
+    GreenImage = pygame.transform.scale(GreenImage, (700, 466))
+    BlueImage = pygame.image.load('images\BillNyeBlue.jpg')
+    BlueImage = pygame.transform.scale(BlueImage, (700, 466))
+    BWImage = pygame.image.load('images\BillNyeBlackWhite.jpg')
+    BWImage = pygame.transform.scale(BWImage, (700, 466))
+    DISPLAY.blit(BWImage, (0, 0))
+    pygame.display.flip()
+    pygame.time.delay(Delay)
+    DISPLAY.blit(RedImage, (700, 0))
+    pygame.display.flip()
+    pygame.time.delay(Delay)
+    DISPLAY.blit(GreenImage, (0, 466))
+    pygame.display.flip()
+    pygame.time.delay(Delay)
+    DISPLAY.blit(BlueImage, (700, 466))
+    pygame.display.flip()
+    pygame.time.delay(Delay)
+    pygame.image.save(DISPLAY, 'images\PieceDeResistance.jpg')
+
 while True:
    for event in pygame.event.get():
        if event.type == QUIT:
            pygame.quit()
            sys.exit()
-   if event.type == pygame.KEYDOWN:
-       if event.key == pygame.K_1:
+   if event.type == pygame.KEYDOWN and event.key == pygame.K_1:
            Greyscale()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeGrey.jpg')
-   if event.type == pygame.KEYDOWN:
-       if event.key == pygame.K_2:
+   if event.type == pygame.KEYDOWN and event.key == pygame.K_2:
            redColour()
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeRed.jpg')
-   if event.type == pygame.KEYDOWN:
-       if event.key == pygame.K_3:
+   if event.type == pygame.KEYDOWN and event.key == pygame.K_3:
            greenColour()
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeGreen.jpg')
-   if event.type == pygame.KEYDOWN:
-       if event.key == pygame.K_4:
+   if event.type == pygame.KEYDOWN and event.key == pygame.K_4:
            blueColour()
            invertColour()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeBlue.jpg')
-   if event.type == pygame.KEYDOWN:
-       if event.key == pygame.K_5:
+   if event.type == pygame.KEYDOWN and event.key == pygame.K_5:
            BlackWhite()
            pygame.display.flip()
            pygame.image.save(DISPLAY, 'images\BillNyeBlackWhite.jpg')
-   if event.type == pygame.KEYDOWN:
-       RedImage = pygame.image.load('images\BillNyeRed.jpg')
-       RedImage = pygame.transform.scale(RedImage, (700, 466))
-       GreenImage = pygame.image.load('images\BillNyeGreen.jpg')
-       GreenImage = pygame.transform.scale(GreenImage, (700, 466))
-       BlueImage = pygame.image.load('images\BillNyeBlue.jpg')
-       BlueImage = pygame.transform.scale(BlueImage, (700, 466))
-       BWImage = pygame.image.load('images\BillNyeBlackWhite.jpg')
-       BWImage = pygame.transform.scale(BWImage, (700, 466))
-       if event.key == pygame.K_9:
-           DISPLAY.blit(BWImage, (0, 0))
-           pygame.display.flip()
-           pygame.time.delay(Delay)
-           DISPLAY.blit(RedImage, (700, 0))
-           pygame.display.flip()
-           pygame.time.delay(Delay)
-           DISPLAY.blit(GreenImage, (0, 466))
-           pygame.display.flip()
-           pygame.time.delay(Delay)
-           DISPLAY.blit(BlueImage, (700, 466))
-           pygame.display.flip()
-           pygame.time.delay(Delay)
-           pygame.image.save(DISPLAY, 'images\PieceDeResistance.jpg')
+   if event.type == pygame.KEYDOWN and event.key == pygame.K_9:
+       try:
+        PieceDeResistance()
+       except:
+           print 'Images have not been generated yet, please use keys 1-5 before trying this again.'
 
 pygame.display.update()
 clock.tick(60)
