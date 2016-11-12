@@ -3,12 +3,14 @@ from pygame.locals import *
 
 pygame.init()
 
+#Displays screen
 WIDTH = 1400
 HEIGHT = 932
 DISPLAY = pygame.display.set_mode((WIDTH, HEIGHT), 0, 32)
 pygame.display.set_caption('Bill Nye')
 clock = pygame.time.Clock()
 
+#Sets up colours
 BLACK = (0, 0, 0)
 WHITE= (255, 255, 255) # red, green, blue in 8-bits
 RED = (255, 0, 0)
@@ -24,6 +26,7 @@ pygame.display.flip()
 pxarray = pygame.PixelArray(DISPLAY)
 del pxarray
 
+#Makes picture greyscale by removing red, green and blue
 def Greyscale():
     DISPLAY.blit(colourImage, (0, 0))
     pygame.display.flip()
@@ -39,6 +42,7 @@ def Greyscale():
             pxarray[x, y] = (GREY, GREY, GREY)
     del pxarray
 
+#Makes picture red by removing blue and green
 def redColour():
     DISPLAY.blit(colourImage, (0, 0))
     pygame.display.flip()
@@ -50,6 +54,7 @@ def redColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (RED, 255 - GREEN, 255- BLUE)
 
+#Makes picture green by removing blue and red
 def greenColour():
     DISPLAY.blit(colourImage, (0, 0))
     pygame.display.flip()
@@ -61,6 +66,7 @@ def greenColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, GREEN, 255- BLUE)
 
+#Makes picture blue by removing red and green
 def blueColour():
     DISPLAY.blit(colourImage, (0, 0))
     pygame.display.flip()
@@ -72,6 +78,7 @@ def blueColour():
             BLUE = DISPLAY.get_at((x, y)).b
             pxarray[x, y] = (255 - RED, 255 - GREEN, BLUE)
 
+#Inverts colour by removing 255 from all RGB values
 def invertColour():
     pxarray = pygame.PixelArray(DISPLAY)
     for y in xrange(HEIGHT):
@@ -82,6 +89,7 @@ def invertColour():
             pxarray[x, y] = (255 - RED, 255 - GREEN, 255 - BLUE)
     del pxarray
 
+#Makes image black and white by calculating the values of the pixels
 def BlackWhite():
     DISPLAY.blit(colourImage, (0, 0))
     pygame.display.flip()
@@ -100,6 +108,7 @@ def BlackWhite():
 
     del pxarray
 
+#Puts 4 images on the screen of the effects we created
 def PieceDeResistance():
     RedImage = pygame.image.load('images\BillNyeRed.jpg')
     RedImage = pygame.transform.scale(RedImage, (700, 466))
@@ -123,6 +132,7 @@ def PieceDeResistance():
     pygame.time.delay(Delay)
     pygame.image.save(DISPLAY, 'images\PieceDeResistance.jpg')
 
+#Sets up key presses to make images do effects
 while True:
    for event in pygame.event.get():
        if event.type == QUIT:
